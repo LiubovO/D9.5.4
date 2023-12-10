@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+
+{% block content %}
+<a href="{%url 'edit' post.pk%}">Редактировать статью</a>
+<a href="{%url 'delete' post.pk%}">Удалить статью</a>
+
+<h1>{{ post.title | censor }}</h1>
+<p>{{ post.created_at|date:"d.m.Y" }}</p>
+<p>{{ post.text | censor }}</p>
+
+<p>{{ post.categories }}</p>
+<p><a href="subscribe">Подписаться на новости категории</a></p>
+
+
+{% endblock content %}
